@@ -19,7 +19,7 @@ trait BelongsToOneTrait
      * @return \Byancode\Database\Eloquent\Relations\BelongsToOne
      */
     public function belongsToOne($related, $table = null, $foreignPivotKey = null, $relatedPivotKey = null,
-                                    $parentKey = null, $relatedKey = null, $relation = null)
+        $parentKey = null, $relatedKey = null, $relation = null)
     {
         // If no relationship name was passed, we will pull backtraces to get the
         // name of the calling function. We will use that function name as the

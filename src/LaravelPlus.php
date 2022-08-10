@@ -2,4 +2,6 @@
 
 namespace Byancode\LaravelPlus;
 
-class LaravelPlus {}
+class LaravelPlus
+{
+}

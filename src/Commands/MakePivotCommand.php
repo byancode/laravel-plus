@@ -22,7 +22,6 @@ class MakePivotCommand extends GeneratorCommand
             $firstModel = $this->qualifyModel($this->argument('firstModel'));
             $secondModel = $this->qualifyModel($this->argument('secondModel'));
 
-
             $first_table = str((new $firstModel())->getTable())->singular()->value();
             $second_table = str((new $secondModel())->getTable())->singular()->value();
 
@@ -40,8 +39,8 @@ class MakePivotCommand extends GeneratorCommand
                 'use Illuminate\Database\Migrations\Migration',
                 'use Illuminate\Database\Schema\Blueprint',
                 'use Illuminate\Support\Facades\Schema',
-                'use ' . $first_model,
-                'use ' . $second_model,
+                'use '.$first_model,
+                'use '.$second_model,
             ];
             sort($uses);
 
@@ -53,19 +52,19 @@ class MakePivotCommand extends GeneratorCommand
                 '{{ first_table_foreign_id }}' => (new $first_model())->getForeignKey(),
                 '{{ second_table_id }}' => (new $second_model())->getKeyName(),
                 '{{ second_table_foreign_id }}' => (new $second_model())->getForeignKey(),
-                '{{ uses }}' => implode(";\n", $uses) . ';',
+                '{{ uses }}' => implode(";\n", $uses).';',
                 '{{ first_model_path }}' => $first_model,
                 '{{ second_model_path }}' => $second_model,
             ];
 
             $migration_file = $this->getMigrationFile($table);
             if (File::exists($migration_file)) {
-                $this->error(sprintf("Migration exists: **_create_category_%s_pivot_table.php", $table));
+                $this->error(sprintf('Migration exists: **_create_category_%s_pivot_table.php', $table));
 
                 return self::FAILURE;
             }
 
-            $this->line("<info>Created Migration:</info> " . str($migration_file)->afterLast('/')->value());
+            $this->line('<info>Created Migration:</info> '.str($migration_file)->afterLast('/')->value());
             $this->makeMigration($migration_file, $replacements);
         }
 
@@ -83,7 +82,7 @@ class MakePivotCommand extends GeneratorCommand
 
     protected function getMigrationFile($table)
     {
-        return PackageServiceProvider::generateMigrationName('create_'. $table . '_pivot_table', now());
+        return PackageServiceProvider::generateMigrationName('create_'.$table.'_pivot_table', now());
     }
 
     protected function getStub()
@@ -92,6 +91,6 @@ class MakePivotCommand extends GeneratorCommand
 
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__ . '/../..'.$stub;
+            : __DIR__.'/../..'.$stub;
     }
 }
