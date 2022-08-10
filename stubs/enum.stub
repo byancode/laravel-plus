@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Enums;
+
+use Byancode\LaravelPlus\Traits\EnumTrait;
+
+enum {{ name }}
+{
+    use EnumTrait;
+
+    case UNKNOWN;
+    case PENDING;
+}
