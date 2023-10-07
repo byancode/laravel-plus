@@ -1,5 +1,11 @@
 # Laravel plus
-### install on composer.json
+
+## Install
+```Bash
+composer require laravel-plus/laravel-plus
+```
+
+### install with github on composer.json
 
 ```JSON
 {
