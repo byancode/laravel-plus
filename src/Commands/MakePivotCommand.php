@@ -12,6 +12,7 @@ class MakePivotCommand extends GeneratorCommand
     public $signature = 'make:pivot
                             {firstModel?}
                             {secondModel?}
+                            {--constrained : Indicates if the pivot table should be constrained}
                             {--table= : Hard code the table to migrate}';
 
     public $description = 'Create a new migration pivot class';
@@ -88,6 +89,10 @@ class MakePivotCommand extends GeneratorCommand
     protected function getStub()
     {
         $stub = '/stubs/migration.pivot.stub';
+
+        if ($this->option('constrained')) {
+            $stub = '/stubs/migration-constrained.pivot.stub';
+        }
 
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath

@@ -16,7 +16,7 @@ trait BelongsToOneTrait
      * @param  string  $parentKey
      * @param  string  $relatedKey
      * @param  string  $relation
-     * @return \Byancode\Database\Eloquent\Relations\BelongsToOne
+     * @return \Byancode\LaravelPlus\Database\Eloquent\Relations\BelongsToOne
      */
     public function belongsToOne($related, $table = null, $foreignPivotKey = null, $relatedPivotKey = null,
         $parentKey = null, $relatedKey = null, $relation = null)

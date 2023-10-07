@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('{{ table }}', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor({{ first_model_name }}::class);
-            $table->foreignIdFor({{ second_model_name }}::class);
+            $table->foreignIdFor({{ first_model_name }}::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor({{ second_model_name }}::class)->constrained()->onDelete('cascade');
             $table->index([
                 '{{ first_table_foreign_id }}',
                 '{{ second_table_foreign_id }}'
