@@ -2,7 +2,7 @@
 
 ## Install
 ```Bash
-composer require laravel-plus/laravel-plus
+composer require byancode/laravel-plus
 ```
 
 ### install with github on composer.json
@@ -10,7 +10,7 @@ composer require laravel-plus/laravel-plus
 ```JSON
 {
     "require": {
-        "laravel-plus/laravel-plus": "dev-main"
+        "byancode/laravel-plus": "dev-main"
     },
     "repositories": [
         {
